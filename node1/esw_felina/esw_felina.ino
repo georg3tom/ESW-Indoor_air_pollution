@@ -23,6 +23,7 @@ int count=0;
 char* WIFI_SSID = "esw-m19@iiith"; 
 char* WIFI_PSWD = "e5W-eMai@3!20hOct";
 
+
 String CSE_IP      = "onem2m.iiit.ac.in";
 // #######################################################
 
@@ -148,7 +149,7 @@ void sgp_usr()
     Serial.println("Raw Measurement failed");
     return;
   }
-  //sgp_val[2]= sgp.rawH2;
+  sgp_val[2]= sgp.rawH2;
   sgp_val[2]= sgp.rawEthanol;
   Serial.print("Raw H2 "); Serial.print(sgp.rawH2); Serial.print(" \t");
   Serial.print("Raw Ethanol "); Serial.print(sgp.rawEthanol); Serial.println("");
@@ -628,6 +629,7 @@ void loop() {
   dht_usr();
   sgp_usr();
   sgp_think();
+  delay(1);
   mgs_usr();
 
   // ######################################################### //
